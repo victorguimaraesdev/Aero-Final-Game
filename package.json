@@ -1,0 +1,58 @@
+{
+  "name": "aerofinal",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/electron/main.js",
+  "author": {
+    "name": "BatataVoadora",
+    "email": "batatafinal@email.com"
+  },
+  "description": "É um passro? é um avião? Não! é uma batata!",
+  "homepage": "./",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "electron:dev": "cross-env NODE_ENV=DEV electron public/electron/main.js",
+    "electron:win": "npm run build && electron-builder --w",
+    "electron:mac": "npm run build && electron-builder --m",
+    "electron:linux": "npm run build && electron-builder --l"
+  },
+  "build": {
+    "appId": "com.aerofinal",
+    "productName": "AeroFinal",
+    "win": {
+      "icon": "./public/invader.png"
+    },
+    "files": [
+      "dist/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.22.0",
+    "vite": "^6.1.0",
+    "vite-plugin-singlefile": "^2.1.0"
+  }
+}
