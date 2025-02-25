@@ -23,8 +23,6 @@ export const useSound = (src: som) => {
     const { volume: vol } = useSelector((state: RootState) => state.volumeState)
     const volume = (Number(vol) / 100)
 
-    console.log(volume)
-
     const som = useRef<HTMLAudioElement>(null)
     useEffect(() => {
         const audio = document.createElement("audio")

@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import icon from '../../assets/images/invader.png';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 const larguraBotao = '20px';
 const alturaBotao = '20px';
 
 const Barra = styled.div<{ $visible: boolean }>`
     width: 100vw;
+    height: 20px;
     display: ${({ $visible }) => (!$visible ? 'flex' : 'none')};
     flex-direction: row;
     justify-content: space-between;
@@ -16,6 +19,7 @@ const Barra = styled.div<{ $visible: boolean }>`
     color: white;
     -webkit-app-region: drag;
     margin-top: 5px;
+    margin-bottom: 5px;
 `;
 
 const Icon = styled.img`
@@ -84,15 +88,12 @@ const Fechar = styled.div`
     }
 `;
 
-type isCheia = {
-    isCheia: boolean
-}
-
-export const BarraJanela = (isCheia:isCheia) => {
+export const BarraJanela = () => {
     const [miniColor, setMiniColor] = useState(false);
+    const { tela } = useSelector((state: RootState) => state.fullscreenState);
 
     return (
-        <Barra $visible={!isCheia}>
+        <Barra $visible={tela}>
             <Caixa1>
                 <Icon src={icon} />
             </Caixa1>

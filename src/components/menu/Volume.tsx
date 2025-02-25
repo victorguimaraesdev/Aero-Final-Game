@@ -13,6 +13,7 @@ const Caixa = styled.div`
 
 const BarraVolume = styled.input`
     -webkit-appearance: none;
+    appearance: none;
     height: 20px;
     width: 100%;
     margin-right: 3px;
