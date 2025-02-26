@@ -1,9 +1,9 @@
 export class Crosshair {
-    context: CanvasRenderingContext2D;
-    x: number;
-    y: number;
-    largura: number;
-    altura: number;
+    private context: CanvasRenderingContext2D;
+    public x: number;
+    public y: number;
+    private largura: number;
+    private altura: number;
     constructor(context: CanvasRenderingContext2D) {
         this.context = context;
         this.x = context.canvas.width / 2;
@@ -12,12 +12,12 @@ export class Crosshair {
         this.altura = Math.min(context.canvas.width) * 0.005;
     }
 
-    update(aim: Position) {
+    public update(aim: Position) {
         this.x = aim.x;
         this.y = aim.y;
     }
 
-    renderizar() {
+    public renderizar() {
         this.context.save();
         this.context.fillStyle = "white";
         this.context.fillRect(this.x - this.largura / 2, this.y - this.altura / 2, this.largura, this.altura);

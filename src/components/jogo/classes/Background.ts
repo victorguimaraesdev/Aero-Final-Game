@@ -1,6 +1,6 @@
 export class Background {
     private context: CanvasRenderingContext2D;
-    private particulas: Particula[] = [];
+    public particulas: Particula[] = [];
     private quantidadeParticulas: number;
     private contadorInicial: number
 
@@ -95,6 +95,17 @@ class Particula {
         this.context.beginPath();
         this.context.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2, false);
         this.context.fill();
+        this.context.restore();
+
+        this.context.save();
+        this.context.globalAlpha = this.opacity * 0.5;
+        this.context.strokeStyle = this.color;
+        this.context.beginPath();
+        this.context.moveTo(this.position.x - this.radius * 2, this.position.y);
+        this.context.lineTo(this.position.x + this.radius * 2, this.position.y);
+        this.context.moveTo(this.position.x, this.position.y - this.radius * 2);
+        this.context.lineTo(this.position.x, this.position.y + this.radius * 2);
+        this.context.stroke();
         this.context.restore();
     };
 }
